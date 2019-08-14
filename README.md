@@ -1,5 +1,7 @@
 # Docker Healthcheck 🏥
 
+[![Build status](https://dev.azure.com/alexandrebeato-com/Healthcheck/_apis/build/status/Healthcheck-CI)](https://dev.azure.com/alexandrebeato-com/Healthcheck/_build/latest?definitionId=6)
+
 A simple NET Core application to test server.
 
 ## Get started ✔
