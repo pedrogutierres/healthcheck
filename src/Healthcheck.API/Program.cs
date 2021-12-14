@@ -1,17 +1,18 @@
-﻿using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
+﻿var builder = WebApplication.CreateBuilder(args);
 
-namespace Healthcheck.API
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            CreateWebHostBuilder(args).Build().Run();
-        }
+// Add services to the container.
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-    }
-}
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+app.Logger.LogInformation("Aplicação iniciada");
+
+var handler = () => {
+    app.Logger.LogInformation("Nova consulta Healthy");
+    return new { status = "Healthy" };
+};
+
+app.MapGet("/", handler);
+app.MapGet("/healthcheck", handler);
+
+app.Run();
